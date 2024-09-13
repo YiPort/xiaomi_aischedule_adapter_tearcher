@@ -16,20 +16,6 @@ async function scheduleTimer() {
     confirmText: '确认'
   });
 
-  // 获取用户输入的开学日期
-  const startSemester = await AISchedulePrompt({
-    titleText: '输入开学日期',
-    tipText: '请输入开学日期，格式如：2024-08-26',
-    defaultText: '',  // 默认为空
-    validator: value => {
-      if (!value || new Date(value).toString() === 'Invalid Date') {
-        return '请输入有效的日期格式，如：2024-08-26';
-      }
-      return false;
-    },
-    confirmText: '确认'
-  });
-
   // 确认是否显示周末
   const showWeekendResponse = await AIScheduleConfirm({
     titleText: '显示周末',
